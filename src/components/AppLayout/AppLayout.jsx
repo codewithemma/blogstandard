@@ -1,15 +1,13 @@
 "use client";
 import { faCoins } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { signOut, useSession } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "../Logo/Logo";
 
 const AppLayout = ({ children }) => {
   const { data: session } = useSession();
-  console.log(session);
-
   return (
     <div className="grid grid-cols-[300px_1fr] h-screen max-h-screen">
       <div className="flex flex-col text-white overflow-hidden">
@@ -18,7 +16,7 @@ const AppLayout = ({ children }) => {
           <Link href="/post/new" className="btn">
             New Post
           </Link>
-          <Link href="/token-popup" className="block mt-2 text-center ">
+          <Link href="/token-topup" className="block mt-2 text-center ">
             <FontAwesomeIcon icon={faCoins} className="text-yellow-500" />{" "}
             <span className="pl-1">0 tokens available</span>
           </Link>
